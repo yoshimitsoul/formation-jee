@@ -1,13 +1,11 @@
 <%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<jsp:include  page="/WEB-INF/views/header.jsp"></jsp:include>
 
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Se connecter</title>
-	</head>
-	
-	<body>
+  <body>
+  <div class="row justify-content-center">
 		<c:if test="${ messageErreur != null }">
 			<div>CA SAFFICHE SI CEST VRAI</div>
 		</c:if>
@@ -18,24 +16,26 @@
 			CA SE REPETE
 		</c:forEach> --%>
 		
-		<c:forEach var="i" begin="0" end="7" step="1">
-			CA SE REPETE ${ i }
+		<c:forEach var="i" begin="0" end="4" step="1">
+			Connectez-vous ! ${ i }
 		</c:forEach>
 		
 		<h2>${ messageErreur }</h2>
-		
-		<form method="POST">
+	</div>
+    <div class="container">
+    <div class="row justify-content-center">
+		<div class="col-12 col-md-8 col-lg-6 pb-5">
+        <form class = "form-group" method="POST">
 			<div>
-				<label>Nom d'utilisateur</label>
-				<input type="text" name="username" />
+				<input type="text" name="username"class="form-control mt-2" placeholder="Nom d'utilisateur"/>
 			</div>
-			
 			<div>
-				<label>Mot de passe</label>
-				<input type="password" name="password" />
+				<input type="password" name="password" class="form-control mt-2" placeholder="Mot de passe"/>
 			</div>
-			
-			<input type="submit" value="Se connecter" />
+			<input class="btn btn-lg btn-dark btn-block mt-5" type="submit" value="Se connecter" />
 		</form>
-	</body>
-</html>
+    	</div>
+    </div>
+    </div>
+  </body>
+ </html>

@@ -1,16 +1,25 @@
-<%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<jsp:include  page="/WEB-INF/views/header.jsp"></jsp:include>
 
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Liste des produits</title>
-	</head>
-	
 	<body>
-		<c:forEach var="produit" items="${ produits }">
-			<!--<p>${ produit.getNom() }</p> -->
-			<p>${ produit.nom }</p>
+	<div class="row justify-content-center">
+	<div class="col-12 col-md-8 col-lg-6 pb-5 text-center">
+		<h1>Liste des produits</h1>
+	</div>
+	</div>
+    <div class="container">
+    <div class="row justify-content-center">
+        <c:forEach var="produit" items="${ produits }" varStatus="produitStatus">
+			<div class="card mt-3 ml-3 text-center" style="width: 18rem;">
+				${ produitStatus.index } - ${ produit.nom }
+				
+				<a href="panier-ajout?id=${ produitStatus.index }" class="btn btn-primary btn-sm active" role="button" title="ajout-panier">Ajouter au panier</a>
+				<a href="produit-supprimer?id=${ produitStatus.index}" class="btn btn-danger btn-sm active" role="button" title="ajout-panier">Supprimer le produit</a>
+			</div>
 		</c:forEach>
-	</body>
+    	</div>
+    </div>
+  </body>
 </html>

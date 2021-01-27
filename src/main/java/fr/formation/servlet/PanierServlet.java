@@ -8,11 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/produits")
-public class ProduitServlet extends HttpServlet {
+@WebServlet("/panier")
+public class PanierServlet extends HttpServlet {
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// DELEGUATION DE LA REQUETE
-		this.getServletContext().getRequestDispatcher("/WEB-INF/views/produits.jsp").forward(req, resp);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/views/panier.jsp").forward(req, resp);
 	}
 }
